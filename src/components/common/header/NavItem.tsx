@@ -7,8 +7,6 @@ import Link from 'next/link'
   { label: 'Virtual Showroom', path: '#' },
   { label: 'Login', path: '#' },
   { label: 'Plaza List', path: '#' },
-  { label: 'Feedback', path: '#' },
-  { label: 'বাংলা', path: '#' },
 ];
 
 function NavItem() {

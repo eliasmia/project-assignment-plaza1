@@ -1,9 +1,9 @@
 "use client";
 
 /**
- * Product detail UI for `/product/[uid]`. Receives `uid` from the server page
- * (after `params` is awaited). Refetches when `uid` changes.
+ * Product detail UI 
  */
+import Link from 'next/link';
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { fetchProductByUid } from "@/lib/walton-plaza/products";
@@ -74,7 +74,15 @@ export default function ProductDetails({ uid }: ProductDetailsProps) {
     selectedVariant < variants.length ? selectedVariant : 0;
   const variant = variants[safeIndex];
   return (
-    <div className="mx-auto max-w-6xl p-10">
+    <div className="mx-auto max-w-6xl p-10 pt-30">
+      <div className="flex items-center justify-between mb-10">
+        <Link href="/" className="rounded bg-black px-6 py-2 text-white hover:opacity-90 ms-3">
+          Back to Home
+        </Link>
+        <h1 className="mb-4 hidden text-center text-3xl font-bold uppercase"> Products Details Page</h1>
+      </div>
+      
+
       <div className="grid gap-10 md:grid-cols-2">
         <div>
           {product.images?.[0]?.url ? (
@@ -83,7 +91,7 @@ export default function ProductDetails({ uid }: ProductDetailsProps) {
               alt={product.enName}
               width={800}
               height={400}
-              className="h-[400px] w-full rounded border object-contain"
+              className="h-[400px] w-full rounded border object-contain p-0"
               unoptimized
             />
           ) : (

@@ -1,8 +1,7 @@
 "use client";
 
 /**
- * Client-side product grid for `/`. Fetches on mount; aborts state updates if the
- * component unmounts mid-request (e.g. fast navigation).
+ * Client-side product
  */
 import Link from "next/link";
 import Image from "next/image";
@@ -42,20 +41,19 @@ export default function ProductList() {
   }, []);
 
   if (loading) {
-    return <p className="p-10">Loading...</p>;
+    return <p className="p-10 flex items-center justify-center">Loading...</p>;
   }
   if (error) {
-    return <p className="p-10 text-red-600">{error}</p>;
+    return <p className="p-10 flex items-center justify-center text-red-600">{error}</p>;
   }
 
   if (products.length === 0) {
-    return <p className="p-10">No products found</p>;
+    return <p className="p-10 flex items-center justify-center">No products found</p>;
   }
 
   return (
     <div className="grid grid-cols-1 gap-6 p-10 md:grid-cols-2">
       {products.map((product) => {
-        // List view: show first variant for price/stock teaser (matches API usage).
         const variant = product?.variants?.[0];
         return (
           <div key={product.uid} className="rounded border p-4 shadow">
@@ -64,14 +62,16 @@ export default function ProductList() {
             </h2>
 
             {product.images?.[0]?.url ? (
+              <Link href={`/product/${product.uid}`}>
               <Image
                 src={product.images[0].url}
                 alt={product.enName}
                 width={192}
                 height={128}
-                className="mb-3 h-32 w-48 object-contain"
+                className="mb-3 h-32 w-48 object-contain hover:scale-115 transition-transform duration-200"
                 unoptimized
               />
+              </Link>
             ) : (
               <div className="mb-3 flex h-32 w-48 items-center justify-center bg-gray-200">
                 No Image

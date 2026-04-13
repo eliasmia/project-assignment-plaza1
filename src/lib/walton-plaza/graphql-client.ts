@@ -1,6 +1,5 @@
 /**
- * Thin GraphQL HTTP client for Walton Plaza. Centralizes URL, JSON envelope,
- * and error handling so feature code can assume either `data` or a thrown Error.
+ * GraphQL HTTP client for Plaza.
  */
 export const WALTON_PLAZA_GRAPHQL_URL =
   "https://devapi.waltonplaza.com.bd/graphql" as const;

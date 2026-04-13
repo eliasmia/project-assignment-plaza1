@@ -1,6 +1,5 @@
 /**
- * Product queries against Walton Plaza GraphQL. Uses `variables` (not string
- * interpolation) so `uid` and pagination values are safe and valid GraphQL.
+ * Product queries for Walton Plaza GraphQL API.
  */
 import type { Product } from "@/types/product";
 import { waltonPlazaGraphqlFetch } from "./graphql-client";
@@ -53,7 +52,7 @@ const LIST_PRODUCTS_QUERY = `
   }
 `;
 
-/** Single product by `uid` from the `[uid]` route segment. */
+/** Single product by `uid` from the `[uid]` route. */
 const PRODUCT_BY_UID_QUERY = `
   query ProductByUid($uid: String) {
     getProducts(

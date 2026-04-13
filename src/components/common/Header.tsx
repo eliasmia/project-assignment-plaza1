@@ -5,7 +5,7 @@ import NavItem from './header/NavItem';
 
 function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50  bg-black-800 p-0 pb-8 bg-[#ddf0f4]">
+    <header className="fixed top-0 left-0 right-0 z-50  bg-black-800 p-6 bg-[#ddf0f4]">
         <div className="flex items-center justify-between p-0 max-w-[1280px] mx-auto">
            <div className="logo">
              <Link href="/" className="flex items-center">
@@ -26,8 +26,6 @@ function Header() {
             <div className="md:hidden flex items-center gap-4">
                 <MobileMenu />
             </div>
-
-         
 
         </div>
  
